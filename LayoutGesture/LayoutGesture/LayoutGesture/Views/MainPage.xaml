@@ -28,6 +28,7 @@
 
         <StackLayout
             Grid.Row="1"
+            Margin="100,10"
             >
             <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer
@@ -38,6 +39,7 @@
 
         <StackLayout
             Grid.Row="2"
+            Margin="100,10"
             BackgroundColor="LightBlue"
             >
             <StackLayout.GestureRecognizers>
@@ -45,6 +47,16 @@
                     Command="{Binding TapCommand}"
                     CommandParameter="藍色背景的 StackLayout 觸發點選手勢"/>
             </StackLayout.GestureRecognizers>
+            <BoxView
+                HorizontalOptions="Center" VerticalOptions="Center"
+                WidthRequest="50" HeightRequest="50"
+                Color="LightYellow">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer
+                    Command="{Binding TapCommand}"
+                    CommandParameter="Grid > StackLayout > BoxView 觸發點選手勢"/>
+                </BoxView.GestureRecognizers>
+            </BoxView>
         </StackLayout>
 
         <BoxView

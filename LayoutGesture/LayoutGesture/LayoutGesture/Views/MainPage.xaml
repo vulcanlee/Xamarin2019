@@ -12,6 +12,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.GestureRecognizers>
             <TapGestureRecognizer
@@ -62,6 +64,23 @@
                     CommandParameter="粉紅色背景的 BoxView 觸發點選手勢"/>
             </BoxView.GestureRecognizers>
         </BoxView>
+
+        <Button
+            Grid.Row="4"
+            HorizontalOptions="Start" VerticalOptions="Center"
+            Text="沒有設定 Command 的按鈕"/>
+
+        <Button
+            Grid.Row="4"
+            HorizontalOptions="End" VerticalOptions="Center"
+            Text="設定 Command 的按鈕"
+            Command="{Binding TapCommand}"
+            CommandParameter="設定 Command 的按鈕"/>
+
+        <Entry
+            Grid.Row="5"
+            Placeholder="請在這裡輸入"
+            HorizontalOptions="Center" VerticalOptions="Center"/>
     </Grid>
 
 </ContentPage>

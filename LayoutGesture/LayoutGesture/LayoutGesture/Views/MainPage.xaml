@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LayoutGesture.Views.MainPage"
+             Title="版面配置的手勢操作">
+
+    <Grid
+       RowSpacing="0" ColumnSpacing="0"
+       >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer
+                    Command="{Binding TapCommand}"
+                    CommandParameter="透明的 Grid 觸發點選手勢"/>
+        </Grid.GestureRecognizers>
+
+        <Label
+            Grid.Row="0" Grid.Column="0"
+            HorizontalOptions="Center" VerticalOptions="Center"
+            Text="{Binding Hint}"/>
+
+        <StackLayout
+            Grid.Row="1"
+            >
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding TapCommand}"
+                    CommandParameter="透明的 StackLayout 觸發點選手勢"/>
+            </StackLayout.GestureRecognizers>
+        </StackLayout>
+
+        <StackLayout
+            Grid.Row="2"
+            BackgroundColor="LightBlue"
+            >
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding TapCommand}"
+                    CommandParameter="藍色背景的 StackLayout 觸發點選手勢"/>
+            </StackLayout.GestureRecognizers>
+        </StackLayout>
+
+        <BoxView
+            Grid.Row="3"
+            Color="LightGreen"
+            HorizontalOptions="Start" VerticalOptions="Center"
+            WidthRequest="100" HeightRequest="50"/>
+
+        <BoxView
+            Grid.Row="3"
+            Color="LightPink"
+            HorizontalOptions="End" VerticalOptions="Center"
+            WidthRequest="100" HeightRequest="50">
+            <BoxView.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding TapCommand}"
+                    CommandParameter="粉紅色背景的 BoxView 觸發點選手勢"/>
+            </BoxView.GestureRecognizers>
+        </BoxView>
+    </Grid>
+
+</ContentPage>

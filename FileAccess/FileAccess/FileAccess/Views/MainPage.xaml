@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FileAccess.Views.MainPage"
+             Title="檔案存取之開發">
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                 Margin="20">
+        <Label Text="帳號" />
+        <Entry Text="{Binding Account}" Placeholder="請輸入帳號"/>
+        <Label Text="密碼" />
+        <Entry Text="{Binding Password}" Placeholder="請輸入密碼"/>
+        <Label Text="檔案路徑" />
+        <Button Text="清空輸入" Command="{Binding CleanCommand}"/>
+        <Label Text="{Binding FilePath}" FontSize="14" />
+        <StackLayout Orientation="Horizontal">
+            <Button Text="同步讀取" Command="{Binding SyncFileReadCommand}"/>
+            <Button Text="同步寫入" Command="{Binding SyncFileWriteCommand}"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Button Text="簡易非同步讀取" Command="{Binding AsyncSimpleFileReadCommand}"/>
+            <Button Text="簡易非同步寫入" Command="{Binding AsyncSimpleFileWriteCommand}"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Button Text="非同步方法讀取" Command="{Binding AsyncFileReadCommand}"/>
+            <Button Text="非同步方法寫入" Command="{Binding AsyncFileWriteCommand}"/>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

@@ -2,8 +2,8 @@
 
 |專案名稱|專案說明|備註|
 |-|-|-|
-|LayoutGesture|Xamarin.Forms 的控制項與版面配置的手勢操作|
-||||
+|LayoutGesture|Xamarin.Forms 的控制項與版面配置的手勢操作||
+|FileAccess|使用 Xamarin.Essentials 進行檔案的同步或非同步存取||
 ||||
 ||||
 ||||

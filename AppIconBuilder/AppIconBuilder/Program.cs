@@ -7,6 +7,7 @@ namespace AppIconBuilder
 {
     class Program
     {
+        // http://iconhandbook.co.uk/reference/chart/
         static async Task Main(string[] args)
         {
             string mainPath = "iOS";

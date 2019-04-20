@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DynamicFlexLayout.Views.MainPage"
+             Title="FlexLayout 的動態調適">
+
+    <Grid>
+        <ScrollView>
+            <Grid
+                HorizontalOptions="Center">
+                <FlexLayout
+                    Wrap="Wrap"
+                    Direction="Row"
+                    AlignItems="Start"
+                    AlignContent="Start"
+                    JustifyContent="Start"
+                    BindableLayout.ItemsSource="{Binding myItemList}"  
+                    >
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Grid
+                                WidthRequest="{Binding Width}" HeightRequest="{Binding Height}">
+                                <Label
+                                    Text="Logo"
+                                    FontSize="30"
+                                    HorizontalTextAlignment="Center"
+                                    WidthRequest="{Binding Width}" HeightRequest="{Binding Height}"
+                                    IsVisible="{Binding ShowLabel}"/>
+                                <BoxView
+                                    Color="{Binding Color}"
+                                    WidthRequest="{Binding Width}" HeightRequest="{Binding Height}"
+                                    IsVisible="{Binding ShowBoxView}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
+            </Grid>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

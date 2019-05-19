@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XAAlarmManager.Views.MainPage"
+             Title="相依性注入與定時提醒">
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Label Text="Welcome to Xamarin Forms and Prism!" />
+        <Entry
+            Placeholder="請輸入幾秒鐘後要發出提醒"
+            Keyboard="Numeric"
+            Text="{Binding AfterMS}"/>
+        <Entry
+            Placeholder="提醒主題"
+            Text="{Binding Title}"/>
+        <Entry
+            Placeholder="提醒內容"
+            Text="{Binding Message}"/>
+        <Button
+            Text="設定提醒"
+            Command="{Binding SetAlertCommand}"/>
+    </StackLayout>
+
+</ContentPage>

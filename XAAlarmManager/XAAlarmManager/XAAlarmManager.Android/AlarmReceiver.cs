@@ -5,8 +5,10 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Media;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V4.App;
 using Android.Views;
 using Android.Widget;
 using Plugin.Toasts;
@@ -20,35 +22,47 @@ namespace XAAlarmManager.Droid
         public override async void OnReceive(Context context, Intent intent)
         {
             PowerManager pm = (PowerManager)context.GetSystemService(Context.PowerService);
-            PowerManager.WakeLock wakeLock = pm.NewWakeLock(WakeLockFlags.Partial, "BackgroundReceiver");
+            PowerManager.WakeLock wakeLock = pm.NewWakeLock(WakeLockFlags.Partial, "AlarmReceiver");
             wakeLock.Acquire();
 
 
             // Run your code here
-            IContainerProvider container = App.Current.Container;
-            IToastNotificator toastNotificator = container.Resolve<IToastNotificator>();
-            NotificationOptions options;
+            string title = "";
+            string message = "";
             if (intent.Extras != null)
             {
-                string title = intent.GetStringExtra("title");
-                string message = intent.GetStringExtra("message");
-                options = new NotificationOptions()
-                {
-                    Title = title,
-                    Description = message
-                };
+                title = intent.GetStringExtra("title");
+                message = intent.GetStringExtra("message");
+            }
+            var pendingIntent = PendingIntent.GetActivity(context, DateTime.Now.Millisecond, intent, PendingIntentFlags.OneShot);
+            NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context)
+                .SetSmallIcon(Resource.Drawable.icon)
+                .SetContentTitle(title)
+                .SetContentText(message)
+                .SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification))
+                .SetAutoCancel(true)
+                .SetContentIntent(pendingIntent);
+
+            NotificationManager notificationManager;
+            notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
+
+            if (Build.VERSION.SdkInt < BuildVersionCodes.O)
+            {
+                notificationManager.Notify(DateTime.Now.Millisecond, notificationBuilder.Build());
             }
             else
             {
-                options = new NotificationOptions()
+                notificationBuilder.SetChannelId("123");
+                var name = "123";
+                var description = message;
+                var channel = new NotificationChannel("123", name, NotificationImportance.Default)
                 {
-                    Title = "提示",
-                    Description = "鬧鈴已經到時"
+                    Description = description,
                 };
+
+                notificationManager.CreateNotificationChannel(channel);
+                notificationManager.Notify(DateTime.Now.Millisecond, notificationBuilder.Build());
             }
-
-            var result = await toastNotificator.Notify(options);
-
 
             wakeLock.Release();
         }

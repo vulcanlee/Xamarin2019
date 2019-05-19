@@ -6,6 +6,7 @@ using Prism;
 using Prism.Ioc;
 
 [assembly: UsesPermission(Name = Android.Manifest.Permission.WakeLock)]
+[assembly: UsesPermission(Name = Android.Manifest.Permission.SetAlarm)]
 namespace XAAlarmManager.Droid
 {
     [Activity(Label = "XAAlarmManager", Icon = "@mipmap/ic_launcher", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]

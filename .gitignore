@@ -243,3 +243,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/SendPushNotification/SendPushNotification/com.vulcan.azurehub.p12

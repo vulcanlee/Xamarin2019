@@ -1,0 +1,9 @@
+﻿{
+  "aps": {
+    "alert": {
+      "title": "推播主題",
+      "body": "Notification Hub test notification"
+    },
+    "sound": "default"
+  }
+}

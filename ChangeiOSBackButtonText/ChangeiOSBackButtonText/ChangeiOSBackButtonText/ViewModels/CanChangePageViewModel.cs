@@ -7,6 +7,7 @@ using System.Linq;
 namespace ChangeiOSBackButtonText.ViewModels
 {
     using System.ComponentModel;
+    using ChangeiOSBackButtonText.Helpers;
     using ChangeiOSBackButtonText.Views;
     using Prism.Events;
     using Prism.Navigation;
@@ -25,7 +26,7 @@ namespace ChangeiOSBackButtonText.ViewModels
             this.navigationService = navigationService;
             SetBackButtonTextCommand = new DelegateCommand(() =>
             {
-                ChangeBackButtonTextDel?.Invoke();
+                ChangeBackButtonTextHelper.ChangeBackButtonText(Message);
             });
         }
 

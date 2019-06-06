@@ -1,4 +1,5 @@
-﻿using ChangeiOSBackButtonText.Interfaces;
+﻿using ChangeiOSBackButtonText.Helpers;
+using ChangeiOSBackButtonText.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -38,8 +39,7 @@ namespace ChangeiOSBackButtonText.AttachedProperties
 
             if(page is IDynamicChangeBackText)
             {
-                IDynamicChangeBackText dynamicChangeBackText = page as IDynamicChangeBackText;
-                dynamicChangeBackText.BackButtonText = newString;
+                ChangeBackButtonTextHelper.ChangeBackButtonText(newString);
             }
         }
         #endregion

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ChangeiOSBackButtonText.Helpers;
 using ChangeiOSBackButtonText.Interfaces;
 using ChangeiOSBackButtonText.iOS.Renderers;
 using ChangeiOSBackButtonText.Views;
@@ -66,8 +67,8 @@ namespace ChangeiOSBackButtonText.iOS.Renderers
 
             if (page is IDynamicChangeBackText)
             {
-                IDynamicChangeBackText dynamicChangeBackText = (IDynamicChangeBackText)page;
-                SetImageTitleBackButton("Left2", dynamicChangeBackText.BackButtonText, 0);
+                string backButtonText = ChangeBackButtonTextHelper.GetBackButtonText();
+                SetImageTitleBackButton("Left2", backButtonText, -15);
             }
             else
             {
@@ -146,37 +147,10 @@ namespace ChangeiOSBackButtonText.iOS.Renderers
             }
         }
 
-
         private void UpdateBackButtonTitleText()
         {
             string backTitle = "";
-            if (App.Current.MainPage is MasterDetailPage)
-            {
-                MasterDetailPage masterDetailPage = App.Current.MainPage as MasterDetailPage;
-                if (masterDetailPage.Detail is NaviCustomPage)
-                {
-                    NaviCustomPage naviCustomPage = masterDetailPage.Detail as NaviCustomPage;
-                    if (naviCustomPage.CurrentPage is IDynamicChangeBackText)
-                    {
-                        IDynamicChangeBackText dynamicChangeBackText = naviCustomPage.CurrentPage as IDynamicChangeBackText;
-                        backTitle = dynamicChangeBackText.BackButtonText;
-                    }
-
-                    //backTitle = naviCustomPage.DynamicBackButtonText;
-                    //backTitle = NaviCustomPage.GetNeedGoBackButtonChanged(naviCustomPage.CurrentPage);
-                }
-            }
-            else if (App.Current.MainPage is NaviCustomPage)
-            {
-                NaviCustomPage naviCustomPage = App.Current.MainPage as NaviCustomPage;
-                if (naviCustomPage.CurrentPage is IDynamicChangeBackText)
-                {
-                    IDynamicChangeBackText dynamicChangeBackText = naviCustomPage.CurrentPage as IDynamicChangeBackText;
-                    backTitle = dynamicChangeBackText.BackButtonText;
-                }
-                //backTitle = NaviCustomPage.GetNeedGoBackButtonChanged(naviCustomPage.CurrentPage);
-            }
-
+            backTitle= ChangeBackButtonTextHelper.GetBackButtonText();
             if (this.NavigationBar.Items.Count() > 1)
             {
                 this.TopViewController.NavigationItem.LeftBarButtonItems[1].Title = backTitle;

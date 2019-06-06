@@ -6,6 +6,5 @@ namespace ChangeiOSBackButtonText.Interfaces
 {
     public interface IDynamicChangeBackText
     {
-        string BackButtonText { get; set; }
     }
 }

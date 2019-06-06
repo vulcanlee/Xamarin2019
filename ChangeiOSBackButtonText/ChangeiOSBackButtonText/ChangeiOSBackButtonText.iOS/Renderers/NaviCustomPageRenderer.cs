@@ -66,8 +66,8 @@ namespace ChangeiOSBackButtonText.iOS.Renderers
 
             if (page is IDynamicChangeBackText)
             {
-                IDynamicChangeBackText dynamicChangeBackText =(IDynamicChangeBackText) page;
-                SetImageTitleBackButton("Left", dynamicChangeBackText.BackButtonText, 0);
+                IDynamicChangeBackText dynamicChangeBackText = (IDynamicChangeBackText)page;
+                SetImageTitleBackButton("Left2", dynamicChangeBackText.BackButtonText, 0);
             }
             else
             {
@@ -81,22 +81,23 @@ namespace ChangeiOSBackButtonText.iOS.Renderers
             var topVC = this.TopViewController;
 
             // Create the image back button
-            //var backButtonImage = new UIBarButtonItem(
-            //        UIImage.FromBundle(imageBundleName),
-            //        UIBarButtonItemStyle.Plain,
-            //        (sender, args) =>
-            //        {
-            //            topVC.NavigationController.PopViewController(true);
-            //        });
+            var backButtonImage = new UIBarButtonItem(
+                    UIImage.FromBundle(imageBundleName),
+                    UIBarButtonItemStyle.Plain,
+                    (sender, args) =>
+                    {
+                        topVC.NavigationController.PopViewController(true);
+                    });
 
             // Create the Text Back Button
-            var backLeftButtonText = new UIBarButtonItem(
-                "<",
-                UIBarButtonItemStyle.Plain,
-                (sender, args) =>
-                {
-                    topVC.NavigationController.PopViewController(true);
-                });
+            //var backLeftButtonText = new UIBarButtonItem(
+            //    "<",
+            //    UIBarButtonItemStyle.Plain,
+            //    (sender, args) =>
+            //    {
+            //        topVC.NavigationController.PopViewController(true);
+            //    });
+
             // Create the Text Back Button
             var backButtonText = new UIBarButtonItem(
                 buttonTitle,
@@ -110,7 +111,7 @@ namespace ChangeiOSBackButtonText.iOS.Renderers
 
             // Add buttons to the Top Bar
             UIBarButtonItem[] buttons = new UIBarButtonItem[2];
-            buttons[0] = backLeftButtonText;
+            buttons[0] = backButtonImage;
             buttons[1] = backButtonText;
 
             topVC.NavigationItem.LeftBarButtonItems = buttons;
@@ -135,35 +136,6 @@ namespace ChangeiOSBackButtonText.iOS.Renderers
             {
                 newMyNaviPage.PropertyChanged += OnElementPropertyChanged;
             }
-            //// Create the material drop shadow
-            //NavigationBar.TintColor = UIColor.Red;
-            //NavigationBar.Layer.ShadowOffset = new CGSize(0, 0);
-            //NavigationBar.Layer.ShadowRadius = 3;
-            //NavigationBar.Layer.ShadowOpacity =0;
-
-            //// Create the back arrow icon image
-            //var arrowImage = UIImage.FromBundle("Icons/ic_arrow_back_white.png");
-            //NavigationBar.BackIndicatorImage = arrowImage;
-            //NavigationBar.BackIndicatorTransitionMaskImage = arrowImage;
-
-            //// Set the back button title to empty since Material Design doesn't use it.
-            //if (NavigationItem?.BackBarButtonItem != null)
-            //    NavigationItem.BackBarButtonItem.Title = " ";
-            //if (NavigationBar.BackItem != null)
-            //{
-            //    NavigationBar.BackItem.Title = " ";
-            //    //NavigationBar.BackItem.BackBarButtonItem.Image = arrowImage;
-            //}
-
-            //NavigationItem.BackBarButtonItem = new UIBarButtonItem { Title = "111", Style = UIBarButtonItemStyle.Plain };
-            //this.NavigationItem.SetLeftBarButtonItem(new UIBarButtonItem("text", UIBarButtonItemStyle.Plain, (sender, args) => { }), true);
-
-
-            //NavigationItem.BackBarButtonItem = new UIBarButtonItem { Title = "", Style = UIBarButtonItemStyle.Plain };
-
-
-            //barButtonItem = new UIBarButtonItem("text", UIBarButtonItemStyle.Plain, (sender, args) => { });
-            //this.NavigationItem.SetLeftBarButtonItem(barButtonItem, true);
         }
 
         private void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -174,51 +146,40 @@ namespace ChangeiOSBackButtonText.iOS.Renderers
             }
         }
 
+
         private void UpdateBackButtonTitleText()
         {
-            //if (NavigationItem?.BackBarButtonItem != null)
+            string backTitle = "";
+            if (App.Current.MainPage is MasterDetailPage)
             {
-                string backTitle = "";
-                if (App.Current.MainPage is MasterDetailPage)
+                MasterDetailPage masterDetailPage = App.Current.MainPage as MasterDetailPage;
+                if (masterDetailPage.Detail is NaviCustomPage)
                 {
-                    MasterDetailPage masterDetailPage = App.Current.MainPage as MasterDetailPage;
-                    if (masterDetailPage.Detail is NaviCustomPage)
+                    NaviCustomPage naviCustomPage = masterDetailPage.Detail as NaviCustomPage;
+                    if (naviCustomPage.CurrentPage is IDynamicChangeBackText)
                     {
-                        NaviCustomPage naviCustomPage = masterDetailPage.Detail as NaviCustomPage;
-                        backTitle = naviCustomPage.DynamicBackButtonText;
+                        IDynamicChangeBackText dynamicChangeBackText = naviCustomPage.CurrentPage as IDynamicChangeBackText;
+                        backTitle = dynamicChangeBackText.BackButtonText;
                     }
+
+                    //backTitle = naviCustomPage.DynamicBackButtonText;
+                    //backTitle = NaviCustomPage.GetNeedGoBackButtonChanged(naviCustomPage.CurrentPage);
                 }
-                else if (App.Current.MainPage is NaviCustomPage)
+            }
+            else if (App.Current.MainPage is NaviCustomPage)
+            {
+                NaviCustomPage naviCustomPage = App.Current.MainPage as NaviCustomPage;
+                if (naviCustomPage.CurrentPage is IDynamicChangeBackText)
                 {
-                    NaviCustomPage naviCustomPage = App.Current.MainPage as NaviCustomPage;
-                    backTitle = naviCustomPage.DynamicBackButtonText;
+                    IDynamicChangeBackText dynamicChangeBackText = naviCustomPage.CurrentPage as IDynamicChangeBackText;
+                    backTitle = dynamicChangeBackText.BackButtonText;
                 }
+                //backTitle = NaviCustomPage.GetNeedGoBackButtonChanged(naviCustomPage.CurrentPage);
+            }
 
-
-                //string backTitle = ((NaviCustomPage)(App.Current.MainPage)).DynamicBackButtonText;
-                //string backTitle = NaviCustomPage.GetDynamicBackButtonText(newMyNaviPage);
-                if (this.NavigationBar.Items.Count() > 1)
-                {
-                    this.TopViewController.NavigationItem.LeftBarButtonItems[1].Title = backTitle;
-
-
-                    //NavigationItem.BackBarButtonItem = new UIBarButtonItem { Title = backTitle };
-                    //barButtonItem.Title = backTitle;
-                    //NavigationItem.BackBarButtonItem.Title =  backTitle;
-
-
-                    //this.NavigationBar.Items[0].Title = backTitle;
-                    //UINavigationItem uINavigationItem = this.NavigationBar.Items[1];
-
-
-
-
-                    //this.NavigationBar
-                    //this.NavigationController.NavigationItem. = true;
-                }
-                //NavigationItem.BackBarButtonItem.Title = backTitle;
-                //NavigationItem.BackBarButtonItem = new UIBarButtonItem { Title = backTitle };
-                //NavigationItem.Title = backTitle;
+            if (this.NavigationBar.Items.Count() > 1)
+            {
+                this.TopViewController.NavigationItem.LeftBarButtonItems[1].Title = backTitle;
             }
         }
     }

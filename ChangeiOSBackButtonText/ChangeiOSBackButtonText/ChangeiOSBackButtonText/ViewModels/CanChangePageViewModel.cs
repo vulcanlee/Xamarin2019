@@ -16,7 +16,7 @@ namespace ChangeiOSBackButtonText.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         public Action ChangeBackButtonTextDel;
         public string Message { get; set; } = "客製文字";
-        public string ThisBackText { get; set; } = "I Will";
+        public string ThisBackText { get; set; } = "I-Will";
         public DelegateCommand SetBackButtonTextCommand { get; set; }
         private readonly INavigationService navigationService;
 

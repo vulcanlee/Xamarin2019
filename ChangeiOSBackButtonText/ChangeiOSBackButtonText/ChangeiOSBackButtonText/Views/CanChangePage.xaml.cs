@@ -1,4 +1,5 @@
-﻿using ChangeiOSBackButtonText.Interfaces;
+﻿using ChangeiOSBackButtonText.AttachedProperties;
+using ChangeiOSBackButtonText.Interfaces;
 using ChangeiOSBackButtonText.ViewModels;
 using Xamarin.Forms;
 
@@ -24,12 +25,22 @@ namespace ChangeiOSBackButtonText.Views
                     if(masterDetailPage.Detail is NaviCustomPage)
                     {
                         NaviCustomPage naviCustomPage = masterDetailPage.Detail as NaviCustomPage;
+                        if(naviCustomPage.CurrentPage is IDynamicChangeBackText)
+                        {
+                            ((naviCustomPage.CurrentPage) as IDynamicChangeBackText).BackButtonText = canChangePageViewModel.Message;
+                        }
                         naviCustomPage.DynamicBackButtonText = canChangePageViewModel.Message;
+                        //DynamicBackButtonTextAttached.SetSetBackButtonText(this, canChangePageViewModel.Message);
                     }
                 } else if(App.Current.MainPage is NaviCustomPage)
                 {
                     NaviCustomPage naviCustomPage = App.Current.MainPage as NaviCustomPage;
+                    if (naviCustomPage.CurrentPage is IDynamicChangeBackText)
+                    {
+                        ((naviCustomPage.CurrentPage) as IDynamicChangeBackText).BackButtonText = canChangePageViewModel.Message;
+                    }
                     naviCustomPage.DynamicBackButtonText = canChangePageViewModel.Message;
+                    //DynamicBackButtonTextAttached.SetSetBackButtonText(this, canChangePageViewModel.Message);
                 }
             };
         }

@@ -6,6 +6,7 @@
              x:Class="ChangeiOSBackButtonText.Views.CanChangePage"
              xmlns:DynBtn="clr-namespace:ChangeiOSBackButtonText.AttachedProperties"
              DynBtn:DynamicBackButtonTextAttached.SetBackButtonText="{Binding ThisBackText}"
+             xmlns:localViews="clr-namespace:ChangeiOSBackButtonText.Views"
              Title="動態換文字">
 
     <StackLayout

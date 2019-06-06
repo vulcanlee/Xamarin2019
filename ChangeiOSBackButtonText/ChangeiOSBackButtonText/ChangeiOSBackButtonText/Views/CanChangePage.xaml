@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ChangeiOSBackButtonText.Views.CanChangePage"
+             xmlns:DynBtn="clr-namespace:ChangeiOSBackButtonText.AttachedProperties"
+             DynBtn:DynamicBackButtonTextAttached.SetBackButtonText="{Binding ThisBackText}"
+             Title="動態換文字">
+
+    <StackLayout
+        >
+        <Entry Text="{Binding Message}"/>
+        <Button Text="設定" Command="{Binding SetBackButtonTextCommand}"/>
+    </StackLayout>
+  
+</ContentPage>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChangeiOSBackButtonText.Views.MainPage"
+             Title="上頁文字變換">
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Label Text="Welcome to Xamarin Forms and Prism!" />
+        <Button Text="切換可動態變換按鈕文字" Command="{Binding SwithChangePageCommand}"/>
+        <Button Text="切換一般頁面" Command="{Binding SwithNextPageCommand}"/>
+        <Button Text="連續兩個頁面" Command="{Binding SwithTwoPageCommand}"/>
+    </StackLayout>
+
+</ContentPage>

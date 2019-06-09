@@ -7,12 +7,14 @@
              xmlns:DynBtn="clr-namespace:ChangeiOSBackButtonText.AttachedProperties"
              DynBtn:DynamicBackButtonTextAttached.SetBackButtonText="{Binding ThisBackText}"
              xmlns:localViews="clr-namespace:ChangeiOSBackButtonText.Views"
-             Title="動態換文字">
+             Title="{Binding Title}">
 
     <StackLayout
         >
         <Entry Text="{Binding Message}"/>
         <Button Text="設定" Command="{Binding SetBackButtonTextCommand}"/>
+        <Button Text="切換中文" Command="{Binding SetChineseCommand}"/>
+        <Button Text="Switch English" Command="{Binding SetEnglishCommand}"/>
     </StackLayout>
   
 </ContentPage>

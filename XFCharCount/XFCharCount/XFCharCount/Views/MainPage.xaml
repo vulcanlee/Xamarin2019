@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFCharCount.Views.MainPage"
+             Title="計算字數"
+             xmlns:behavior="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:local="clr-namespace:XFCharCount">
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Label Text="Welcome to Xamarin Forms and Prism!" />
+        <Label Text="{Binding EditorInputTextLength}"/>
+        <Label Text="{Binding EntryInputTextLength}"/>
+        <Label Text="{Binding EntryChangedInputTextLength}"/>
+        <Label Text="{Binding EntryBehaviorInputTextLength}"/>
+        <Editor
+            Text="{Binding EditorInputText}"
+            AutoSize="TextChanges"
+            local:CharCountAttachedProperty.EnableCharCount="True"
+            local:CharCountAttachedProperty.CharNumber="{Binding EditorInputTextLength, Mode=TwoWay}"
+            />
+        <Entry
+            Text="{Binding EntryInputText}"
+            local:CharCountAttachedProperty.EnableCharCount="True"
+            local:CharCountAttachedProperty.CharNumber="{Binding EntryInputTextLength, Mode=TwoWay}"/>
+        <Entry
+            Text="{Binding EntryChangedInputText}"/>
+        <Entry
+            Text="{Binding EntryBehaviorInputText}">
+            <Entry.Behaviors>
+                <behavior:EventToCommandBehavior
+                    EventName="TextChanged" Command="{Binding EntryChangedCommand}"/>
+            </Entry.Behaviors>
+        </Entry>
+    </StackLayout>
+
+</ContentPage>

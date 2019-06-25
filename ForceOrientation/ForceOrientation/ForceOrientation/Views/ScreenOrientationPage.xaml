@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ForceOrientation.Views.ScreenOrientationPage"
+             Title="螢幕強制旋轉鎖定">
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Button Text="自由旋轉" 
+                Command="{Binding OrientationCommand}" CommandParameter="自由旋轉"/>
+        <Button Text="限制直式" 
+                Command="{Binding OrientationCommand}" CommandParameter="限制直式"/>
+        <Button Text="限制橫式" 
+                Command="{Binding OrientationCommand}" CommandParameter="限制橫式"/>
+    </StackLayout>
+
+</ContentPage>

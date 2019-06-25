@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ForceOrientation.Views.MainPage"
+             Title="跨平台的螢幕強制旋轉指定"
+             xmlns:navi="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms">
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Label Text="Welcome to Xamarin Forms and Prism!" />
+        <Button Text="開始測試" Command="{navi:NavigateTo 'ScreenOrientationPage'}"/>
+    </StackLayout>
+
+</ContentPage>

@@ -3,6 +3,8 @@ using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Text;
 
@@ -27,15 +29,30 @@ namespace AppIconBuilder
             }
             foreach (var item in Images)
             {
-                using (Image<Rgba32> image = Image.Load("icon.png"))
+                using (Image<Rgba32> image = SixLabors.ImageSharp.Image.Load("icon.png"))
                 {
                     image.Mutate(x => x
                          .Resize((int)item.Width, (int)item.Height));
                     string filename = Path.Combine(mainPath, item.Filename);
                     image.Save(filename); // Automatic encoder selected based on extension.
                 }
+
+                if (item.Filename.Contains("ItunesArtwork@2x"))
+                {
+                    RemTransp(Path.Combine(mainPath, item.Filename));
+                }
             }
 
+        }
+        void RemTransp(string file)
+        {
+            Bitmap src = new Bitmap(file);
+            Bitmap target = new Bitmap(src.Size.Width, src.Size.Height, PixelFormat.Format32bppRgb);
+            target.SetResolution(72.0f, 72.0f);
+            Graphics g = Graphics.FromImage(target);
+            g.DrawRectangle(new Pen(new SolidBrush(Color.White)), 0, 0, target.Width, target.Height);
+            g.DrawImage(src, 0, 0);
+            target.Save(file.Replace("ItunesArtwork", "ItunesArtworkNoAlpha"));
         }
     }
     public class iOSImageItem

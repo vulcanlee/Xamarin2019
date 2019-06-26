@@ -16,6 +16,11 @@ namespace AppIconBuilder
             imageDefinition.CalculateSize();
             imageDefinition.GenerateIcons(mainPath);
 
+            mainPath = "AppStore";
+            iTunesImageDefinition iTunesImageDefinition = new iTunesImageDefinition();
+            iTunesImageDefinition.Initialization();
+            iTunesImageDefinition.GenerateIcons(mainPath);
+
             mainPath = "Android_Launcher";
             AndroidImageDefinition androidImageDefinition = new AndroidImageDefinition();
             androidImageDefinition.Initialization();

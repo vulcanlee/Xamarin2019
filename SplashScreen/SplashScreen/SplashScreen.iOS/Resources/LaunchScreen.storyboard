@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="X5k-f2-b5h">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="gAE-YM-kbH">
+            <objects>
+                <viewController id="X5k-f2-b5h" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y8P-hJ-Z43"/>
+                        <viewControllerLayoutGuide type="bottom" id="9ZL-r4-8FZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yd7-JS-zBw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="23" image="icon.png">
+                                <rect key="frame" x="94" y="42" width="187" height="222"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                <constraints>
+                                    <constraint id="269" firstAttribute="height" constant="222"/>
+                                    <constraint id="270" firstAttribute="width" constant="187"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的 Xamarin.Forms" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="271" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="16" y="617" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" colorSpace="calibratedRGB" red="0.16078431372549021" green="0.396078431372549" blue="0.91764705882352937" alpha="1"/>
+                                <color key="highlightedColor" colorSpace="calibratedRGB" red="0" green="0" blue="0" alpha="1"/>
+                                <color key="tintColor" colorSpace="calibratedRGB" red="0.0392156862745098" green="0.37647058823529411" blue="1" alpha="1"/>
+                                <constraints>
+                                    <constraint id="275" firstAttribute="height" constant="21"/>
+                                    <constraint id="279" firstAttribute="height" constant="21"/>
+                                </constraints>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" colorSpace="calibratedRGB" red="0.97254901960784312" green="0.87058823529411766" blue="0.87058823529411766" alpha="1"/>
+                        <constraints>
+                            <constraint id="266" firstItem="23" firstAttribute="leading" secondItem="yd7-JS-zBw" secondAttribute="leadingMargin" constant="78"/>
+                            <constraint id="267" firstAttribute="trailingMargin" secondItem="23" secondAttribute="trailing" constant="78"/>
+                            <constraint id="268" firstItem="23" firstAttribute="top" secondItem="Y8P-hJ-Z43" secondAttribute="bottom" constant="22"/>
+                            <constraint id="277" firstItem="271" firstAttribute="leading" secondItem="yd7-JS-zBw" secondAttribute="leadingMargin"/>
+                            <constraint id="278" firstItem="271" firstAttribute="trailing" secondItem="yd7-JS-zBw" secondAttribute="trailingMargin"/>
+                            <constraint id="280" firstItem="9ZL-r4-8FZ" firstAttribute="top" secondItem="271" secondAttribute="bottom" constant="29"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="MyXamarin" destination="271" id="name-outlet-271"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XAI-xm-WK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="349" y="339"/>
+        </scene>
+    </scenes>
+</document>

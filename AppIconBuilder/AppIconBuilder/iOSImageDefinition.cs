@@ -29,17 +29,29 @@ namespace AppIconBuilder
             }
             foreach (var item in Images)
             {
+                string file = "";
                 using (Image<Rgba32> image = SixLabors.ImageSharp.Image.Load("icon.png"))
                 {
                     image.Mutate(x => x
                          .Resize((int)item.Width, (int)item.Height));
-                    string filename = Path.Combine(mainPath, item.Filename);
+                    if (item.Filename.Contains("ItunesArtwork@2x"))
+                    {
+                        file = item.Filename.Replace("ItunesArtwork@2x", "tmp");
+                    }
+                    else
+                    {
+                        file = item.Filename;
+                    }
+                    string filename = Path.Combine(mainPath, file);
                     image.Save(filename); // Automatic encoder selected based on extension.
+                    image.Dispose();
                 }
-
                 if (item.Filename.Contains("ItunesArtwork@2x"))
                 {
-                    RemTransp(Path.Combine(mainPath, item.Filename));
+                    RemTransp(Path.Combine(mainPath, file));
+                    string fileSource = Path.Combine(mainPath, file);
+                    string fileTarget = Path.Combine(mainPath, item.Filename);
+                    File.Delete(fileSource);
                 }
             }
 
@@ -50,9 +62,12 @@ namespace AppIconBuilder
             Bitmap target = new Bitmap(src.Size.Width, src.Size.Height, PixelFormat.Format32bppRgb);
             target.SetResolution(72.0f, 72.0f);
             Graphics g = Graphics.FromImage(target);
-            g.DrawRectangle(new Pen(new SolidBrush(Color.White)), 0, 0, target.Width, target.Height);
+            //g.DrawRectangle(new Pen(new SolidBrush(Color.White)), 0, 0, target.Width, target.Height);
+            g.FillRectangle(new SolidBrush(Color.White), 0, 0, target.Width, target.Height);
             g.DrawImage(src, 0, 0);
-            target.Save(file.Replace("ItunesArtwork", "ItunesArtworkNoAlpha"));
+            target.Save(file.Replace("tmp", "ItunesArtwork@2x"));
+            src.Dispose();
+            target.Dispose();
         }
     }
     public class iOSImageItem

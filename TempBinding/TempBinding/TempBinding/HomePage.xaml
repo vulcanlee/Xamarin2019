@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:MainPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:TempBinding"
+             x:Class="TempBinding.HomePage"
+                BackgroundColor="LightGreen"
+                FooterText="{Binding MyTime}"
+                ButtonTapGestureCommand="{Binding TimeTapCommand}">
+
+    <ContentPage.BindingContext>
+        <local:HomePageViewModel/>
+    </ContentPage.BindingContext>
+
+    <local:MainPage.Content>
+        <ContentView Padding="0,0,0,0" ControlTemplate="{StaticResource MyTemplate}">
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Label Text="綠色區域" HorizontalOptions="Center" />
+                <Button Text="沒有控制項樣板的頁面 Page1" x:Name="btnShowNoTemp" Clicked="BtnShowNoTemp_Clicked" />
+                <Button Text="另外一個有控制項樣板的頁面 Page2" x:Name="btnShowAnotherTempPage" Clicked="BtnShowAnotherTempPage_Clicked"/>
+                <Label Text="{Binding Message}"/>
+            </StackLayout>
+        </ContentView>
+    </local:MainPage.Content>
+</local:MainPage>

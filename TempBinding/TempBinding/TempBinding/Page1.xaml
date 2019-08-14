@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TempBinding.Page1"
+             BackgroundColor="LightSeaGreen">
+    <ContentView x:Name="contentView" Padding="0,0,0,0">
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <Label Text="海藍寶石的顏色區域是 Page1" HorizontalOptions="Center" />
+            <Button Text="回首頁" x:Name="btnGoHome" Clicked="BtnGoHome_Clicked"/>
+        </StackLayout>
+    </ContentView>
+</ContentPage>

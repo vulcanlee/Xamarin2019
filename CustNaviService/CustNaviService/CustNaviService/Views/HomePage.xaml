@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodelLocator="clr-namespace:CourseNaviService.NaviServices;assembly=CourseNaviService"
+             viewmodelLocator:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d"
+             x:Class="CustNaviService.Views.HomePage"
+             Title="首頁"
+             BackgroundColor="LightBlue">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!!!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Button
+                Text="關於" Command="{Binding AboutCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodelLocator="clr-namespace:CourseNaviService.NaviServices;assembly=CourseNaviService"
+             viewmodelLocator:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d"
+             x:Class="CustNaviService.Views.LoginPage"
+             BackgroundColor="LightPink">
+    <ContentPage.Content>
+        <StackLayout
+            HorizontalOptions="Fill" VerticalOptions="Fill"
+            Padding="20">
+            <Label Text="系統登入" HorizontalOptions="Center" VerticalOptions="Start"
+                   Margin="0,80,0,30" FontSize="30"/>
+            <Label Text="帳號"/>
+            <Entry />
+            <Label Text="密碼"/>
+            <Entry IsPassword="True" />
+            <Button Text="登入" Command="{Binding LoginCommand}"
+                    Margin="0,40,0,0"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

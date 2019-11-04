@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using Xamarin.Forms;
 
-namespace CourseNaviService.NaviServices
+namespace Vulcan.Courses.XamarinForms.NaviServices
 {
     public static class ViewModelLocator
     {

@@ -1,4 +1,4 @@
-﻿using CourseNaviService.NaviServices;
+﻿using Vulcan.Courses.XamarinForms.NaviServices;
 using CustNaviService.ViewModels;
 using CustNaviService.Views;
 using System;
@@ -20,13 +20,6 @@ namespace CustNaviService
                 () => { return (Application.Current.MainPage as MDPage)?.Detail as NaviPage; },
                 () => { return Application.Current.MainPage as MDPage; },
                 () => { return new MDPage(); });
-
-            //public NaviService(
-            // Func<NavigationPage> getNavigationPageDelegate,
-            // Func<Page, NavigationPage> generateNavigationPageDelegate,
-            // Func<NavigationPage> getMasterDetailNavigationPageDelegate,
-            // Func<MasterDetailPage> getMasterDetailPageDelegate,
-            // Func<MasterDetailPage> generateMasterDetailPageDelegate)
 
             //MainPage = new MainPage();
 

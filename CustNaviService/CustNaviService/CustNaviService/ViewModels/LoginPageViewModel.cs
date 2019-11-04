@@ -1,7 +1,7 @@
-﻿using CourseNaviService.NaviServices;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Vulcan.Courses.XamarinForms.NaviServices;
 using Xamarin.Forms;
 
 namespace CustNaviService.ViewModels

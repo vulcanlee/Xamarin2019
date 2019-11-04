@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:viewmodelLocator="clr-namespace:CourseNaviService.NaviServices;assembly=CourseNaviService"
+             xmlns:viewmodelLocator="clr-namespace:Vulcan.Courses.XamarinForms.NaviServices;assembly=Vulcan.Courses.XamarinForms"
              viewmodelLocator:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d"
              x:Class="CustNaviService.Views.LoginPage"

@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CourseNaviService.NaviServices
+namespace Vulcan.Courses.XamarinForms.NaviServices
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace CourseNaviService.NaviServices
+namespace Vulcan.Courses.XamarinForms.NaviServices
 {
     public class NaviService : INaviService
     {
@@ -140,13 +140,17 @@ namespace CourseNaviService.NaviServices
                     Application.Current.MainPage = GenerateNavigationPageDelegate(page);
                 }
             }
+            else if (navigateMode == NavigateMode.RestartRelative)
+            {
+                Application.Current.MainPage = GenerateNavigationPageDelegate(page);
+            }
             else if (navigateMode == NavigateMode.Master)
             {
                 //if ((retriveMasterDetailPage == null) )
                 //{
-                    MasterDetailPage masterDetailPage = GenerateMasterDetailPageDelegate();
-                    masterDetailPage.Detail = GenerateNavigationPageDelegate(page);
-                    Application.Current.MainPage = masterDetailPage;
+                MasterDetailPage masterDetailPage = GenerateMasterDetailPageDelegate();
+                masterDetailPage.Detail = GenerateNavigationPageDelegate(page);
+                Application.Current.MainPage = masterDetailPage;
                 //}
                 //else
                 //{

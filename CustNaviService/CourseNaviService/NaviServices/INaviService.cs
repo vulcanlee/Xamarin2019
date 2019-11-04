@@ -4,12 +4,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace CourseNaviService.NaviServices
+namespace Vulcan.Courses.XamarinForms.NaviServices
 {
     public enum NavigateMode
     {
         Absolute,
         Relative,
+        RestartRelative,
         Master
     }
     public interface INaviService

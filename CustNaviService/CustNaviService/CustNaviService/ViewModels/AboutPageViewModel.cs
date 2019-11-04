@@ -1,4 +1,4 @@
-﻿using CourseNaviService.NaviServices;
+﻿using Vulcan.Courses.XamarinForms.NaviServices;
 using System;
 using System.Collections.Generic;
 using System.Text;

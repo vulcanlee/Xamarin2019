@@ -1,4 +1,4 @@
-﻿using CourseNaviService.NaviServices;
+﻿using Vulcan.Courses.XamarinForms.NaviServices;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,6 +24,10 @@ namespace CustNaviService.ViewModels
                 if (x == "Page 3")
                 {
                     NavigationService.NavigateToAsync<LoginPageViewModel>(NavigateMode.Absolute);
+                }
+                if (x == "Page 4")
+                {
+                    NavigationService.NavigateToAsync<LoginPageViewModel>(NavigateMode.RestartRelative);
                 }
             };
         }
